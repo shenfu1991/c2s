@@ -6,15 +6,20 @@ let package = Package(
     platforms: [
        .macOS(.v12)
     ],
+    products: [
+        .library(name: "CHalf", targets: ["CHalf"])
+    ],
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
     ],
     targets: [
+        .target(name: "CHalf"),
         .target(
             name: "App",
             dependencies: [
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+                "CHalf"
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of
