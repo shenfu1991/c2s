@@ -9,7 +9,7 @@ public func configure(_ app: Application) throws {
 
     
     let s = test()
-    debugPrint(s)
+    debugPrint("\(s/1024/1024) MB")
     
     // register routes
     try routes(app)
